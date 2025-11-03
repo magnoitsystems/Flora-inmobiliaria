@@ -2,64 +2,55 @@ import Image from "next/image";
 import styles from './SmallCard.module.css';
 import Link from "next/link";
 
-type PropertyImage = {
-    id: number;
-    imageUrl: string;
+type Props = {
+    id:number,
+    imageSrc: string;
     price: number;
-    address: string;
+    transaction: string;
+    adress: string;
     city: string;
-    rentOrSale: string;
-    features:{
-        rooms: number;
-        bedrooms: number;
-        bathrooms: number;
-    };
+    rooms: number;
+    dorms: number;
+    bathrooms: number;
+    showLabel?: boolean;
 };
 
-type PropertyCardProps = {
-    property: PropertyImage;
-}
-
-const SmallCard = ({ property }: PropertyCardProps) => {
-    const formattedPrice = new Intl.NumberFormat('es-AR').format(property.price);
-
+export default function SmallCard({id, imageSrc, price, transaction, adress, city, rooms, dorms, bathrooms}:Props){
     const showLabel =
-        property.rentOrSale === "VENDIDA" ||
-        property.rentOrSale === "ALQUILADA" ||
-        property.rentOrSale === "Alquilada" ||
-        property.rentOrSale === "alquilada" ||
-        property.rentOrSale === "Vendida" ||
-        property.rentOrSale === "vendida"
+        transaction === "VENDIDA" ||
+        transaction === "ALQUILADA" ||
+        transaction === "Alquilada" ||
+        transaction === "alquilada" ||
+        transaction === "Vendida" ||
+        transaction === "vendida"
     ;
 
     return (
-        <article className={styles.card}>
-            {showLabel && <div className={styles.addedLabel}>{property.rentOrSale}</div>}
-
-            <Link href={`/propiedades/ficha/${property.id}`}>
-            <Image
-                src={property.imageUrl}
-                alt={`Imagen de la propiedad en ${property.address}`}
-                fill
-                className={styles.cardImage}
-            />
+        <main className={styles.card}>
+            {showLabel && <div className={styles.addedLabel}>{transaction}</div>}
+            <Link href={`/propiedades/ficha/${id}`}>
+                <Image
+                    src={imageSrc}
+                    alt={`Imagen de la propiedad en ${adress}`}
+                    fill
+                    className={styles.cardImage}
+                />
             </Link>
             <div className={styles.cardOverlay}>
                 <h3 className={styles['cardPriceStatus']}>
-                    USD {formattedPrice} | {property.rentOrSale}
+                    USD {price} | {transaction}
                 </h3>
                 <h5 className={styles.cardAddress}>
-                    {property.address}, {property.city}
+                    {adress}, {city}
                 </h5>
                 <h6 className={styles.cardFeatures}>
-                    {property.features.rooms} ambientes
+                    {rooms} ambientes
                 </h6>
                 <h6 className={styles.cardFeatures}>
-                    {property.features.bedrooms} dormitorios | {property.features.bathrooms} baños
+                    {dorms} dormitorios | {bathrooms} baños
                 </h6>
             </div>
-        </article>
-    );
+        </main>
+    )
 }
 
-export default SmallCard;

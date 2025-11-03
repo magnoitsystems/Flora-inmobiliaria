@@ -59,6 +59,7 @@ export async function GET(request: Request) {
             price: p.price || 0,
             description: p.description || '',
             type: mapPropertyType(p.type),
+
             characteristics: p.characteristics.map((c): Characteristic => ({
                 id: c.idCharacteristic,
                 characteristic: c.characteristic,

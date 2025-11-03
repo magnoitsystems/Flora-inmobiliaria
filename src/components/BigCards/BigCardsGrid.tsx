@@ -4,7 +4,7 @@ import styles from './BigCard.module.css'
 import {cactus} from "@/app/(views)/ui/fonts";
 import BigCard from "@/components/BigCards/BigCard";
 import React, { useEffect, useState } from "react";
-import { Property } from "@/types/Property"; // Ajusta la ruta según tu estructura
+import { Property } from "@/types/Property";
 import { CharacteristicCategory } from "@/types/Characteristic";
 import { useSearchParams } from 'next/navigation';
 

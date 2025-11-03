@@ -17,7 +17,6 @@ export interface Property {
   characteristics: Characteristic[];
   images: { id: number; url: string }[];
   type?: PropertyType;
-  transition: PropertyState;
 }
 
 export interface PropertyInput {
