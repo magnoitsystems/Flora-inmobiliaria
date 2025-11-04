@@ -31,6 +31,7 @@ const PropertyGrid = ({ properties }: PropertyGridProps) => {
             <div className={styles['propertyGrid']}>
                 {properties.map((property) => (
                     <SmallCard
+	                    key={property.id}
                         property={property}
                     />
                 ))}
