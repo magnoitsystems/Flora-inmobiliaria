@@ -1,4 +1,3 @@
-// src/app/sitemap.ts
 import { MetadataRoute } from 'next'
 import { getBaseUrl } from '@/lib/baseURL'
 

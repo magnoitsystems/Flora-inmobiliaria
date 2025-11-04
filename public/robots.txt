@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://flora-cordeiro-inmobiliaria.vercel.app
-
-# Sitemaps
-Sitemap: https://flora-cordeiro-inmobiliaria.vercel.app/sitemap.xml
