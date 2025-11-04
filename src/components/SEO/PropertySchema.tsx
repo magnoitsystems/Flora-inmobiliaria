@@ -1,4 +1,5 @@
 import { Property } from '@/types/Property'
+import {getBaseUrl} from "@/lib/baseURL";
 
 interface PropertySchemaProps {
 	property: Property
@@ -10,7 +11,7 @@ export function PropertySchema({ property }: PropertySchemaProps) {
 		'@type': 'RealEstateListing',
 		name: `${property.type} en ${property.address}`,
 		description: property.description,
-		url: `https://flora-cordeiro-inmobiliaria.vercel.app/propiedades/ficha/${property.id}`,
+		url: `${getBaseUrl()}/propiedades/ficha/${property.id}`,
 
 		offers: {
 			'@type': 'Offer',
@@ -19,7 +20,7 @@ export function PropertySchema({ property }: PropertySchemaProps) {
 			availability: property.state === 'venta'
 				? 'https://schema.org/InStock'
 				: 'https://schema.org/OutOfStock',
-			url: `https://flora-cordeiro-inmobiliaria.vercel.app/propiedades/ficha/${property.id}`,
+			url: `${getBaseUrl()}/propiedades/ficha/${property.id}`,
 		},
 
 		address: {
@@ -53,9 +54,9 @@ export function PropertySchema({ property }: PropertySchemaProps) {
 		broker: {
 			'@type': 'RealEstateAgent',
 			name: 'Flora Cordeiro',
-			url: 'https://flora-cordeiro-inmobiliaria.vercel.app/',
+			url: `${getBaseUrl()}/`,
 			telephone: '+54-XXX-XXXXXXX', // AGREGAR TELÉFONO REAL
-			email: 'contacto@floracordeiro.com', // AGREGAR EMAIL REAL
+			email: "floracordeiroinmobiliaria@gmail.com", // AGREGAR EMAIL REAL
 		}
 	}
 

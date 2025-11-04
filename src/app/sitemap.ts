@@ -2,7 +2,6 @@
 import { MetadataRoute } from 'next'
 import { getBaseUrl } from '@/lib/baseURL'
 
-// AJUSTAR según tu implementación real de fetch de propiedades
 async function getAllPropertyIds(): Promise<string[]> {
 	try {
 		const response = await fetch(`${getBaseUrl()}/api/properties`, {
